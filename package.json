@@ -1,0 +1,37 @@
+{
+  "name": "react-experiments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTest.js"
+    ]
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "rollup -c rollup.config.js -w"
+  },
+  "author": "mathilde",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.16.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-image": "^2.1.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@types/enzyme": "^3.10.10",
+    "@types/jest": "^27.0.2",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
+    "enzyme": "^3.11.0",
+    "jest": "^27.3.1",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-postcss": "^4.0.1",
+    "rollup-plugin-serve": "^1.1.0"
+  }
+}
