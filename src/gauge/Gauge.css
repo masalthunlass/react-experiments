@@ -1,0 +1,33 @@
+#gauge .needle {
+    background-color: red;
+    height: 2px;
+    width:50%;
+    -webkit-transform: rotate(112.2deg);
+    position: relative;
+    z-index: 1;
+    top:9.8em;
+    padding-left: 50%;
+    transform-origin: center;
+
+
+}
+.score-slice {
+    z-index: 2;
+    background-image:
+            linear-gradient(135deg, transparent 50%, white 50%),
+            linear-gradient(90deg, white 50%, transparent 50%);
+   background-size: 20em 20em;
+
+}
+#gauge {
+    overflow: hidden;
+    width: 20em;
+    height: 10em;
+    border-radius: 50%/100% 100% 0 0;
+    background-color: #D09417;
+    border: 12px solid #0F1235;
+    display: block;
+}
+
+
+
