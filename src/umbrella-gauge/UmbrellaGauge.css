@@ -1,0 +1,30 @@
+#gauge {
+    height: 10em;
+    width: 20em;
+    background: conic-gradient(
+            #F5C60C 0deg 5deg,
+            #FF7937 5deg 10deg,
+            #B6D5E7 10deg 15deg,
+            #FF7937 15deg 20deg,
+            #F5C60C 20deg 25deg,
+            #fff 25deg 360deg
+    );
+    background-size: 20em 20em;
+    border-radius: 50%;
+    border: 12px solid #0F1235;
+    overflow: hidden;
+    display: block;
+    border-radius: 50%/100% 100% 0 0;
+}
+
+#gauge .needle {
+    background-color: red;
+    height: 2px;
+    width:50%;
+    -webkit-transform: rotate(102.2deg);
+    position: relative;
+    z-index: 1;
+    top:10em;
+    padding-left: 50%;
+    transform-origin: center;
+}

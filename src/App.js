@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import Gauge from "./gauge/Gauge";
+import UmbrellaGauge from "./umbrella-gauge/UmbrellaGauge";
 
-function App(){
+function App() {
     return <div>
-        <h1>Hello World</h1>
-       <Gauge></Gauge>
+        <h1>Longueur d'ondes</h1>
+        <UmbrellaGauge/>
     </div>;
 }
+
 export default App;
