@@ -2,12 +2,12 @@
     height: 10em;
     width: 20em;
     background: conic-gradient(
-            #F5C60C 0deg 5deg,
-            #FF7937 5deg 10deg,
-            #B6D5E7 10deg 15deg,
-            #FF7937 15deg 20deg,
-            #F5C60C 20deg 25deg,
-            #fff 25deg 360deg
+            #F5C60C var(--yellow-left-zone-min) var(--yellow-left-zone-max),
+            #FF7937 var(--orange-left-zone-min) var(--orange-left-zone-max),
+            #B6D5E7 var(--grey-zone-min) var(--grey-zone-max),
+            #FF7937 var(--orange-right-zone-min) var(--orange-right-zone-max),
+            #F5C60C var(--yellow-right-zone-min) var(--yellow-right-zone-max),
+            #fff var(--white-zone-min) var(--white-zone-max)
     );
     background-size: 20em 20em;
     border-radius: 50%;
@@ -21,10 +21,11 @@
     background-color: red;
     height: 2px;
     width:50%;
-    -webkit-transform: rotate(102.2deg);
+    -webkit-transform: rotate(var(--needle-position));
     position: relative;
     z-index: 1;
     top:10em;
     padding-left: 50%;
     transform-origin: center;
+    visibility: var(--needle-visibility, hidden);
 }
