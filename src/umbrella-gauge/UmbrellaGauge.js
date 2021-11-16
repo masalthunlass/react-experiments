@@ -6,13 +6,16 @@ const UmbrellaGauge = () => {
     const needleStyle = (position = 0, visibility = 'hidden') => {
         return {
             "--needle-position": `${position}deg`,
-            "--needle-visibility": 'visible'
+            "--needle-visibility": `${visibility}`
        };
     }
-
-    const dialStyle = (start = 0) => {
+    const randomInt = (max) => {
+            return Math.floor(Math.random() * max);
+    }
+    const dialStyle = () => {
         const minRight = 0;
         const maxLeft = 155;
+        let start = randomInt(maxLeft);
         if (start > maxLeft) start = maxLeft;
         if (start < minRight) start = minRight;
         return {
@@ -33,7 +36,7 @@ const UmbrellaGauge = () => {
         };
     }
 
-    return <div id="gauge" style={dialStyle(36)}>
+    return <div id="gauge" style={dialStyle()}>
         <div className="needle" style={needleStyle(23)}/>
     </div>
 }
