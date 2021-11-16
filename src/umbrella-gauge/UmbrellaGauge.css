@@ -1,13 +1,15 @@
 #gauge {
     height: 10em;
     width: 20em;
-    background: conic-gradient(
+    background-image: conic-gradient(
+            from -90deg,
+            #fff var(--white-zone-left-min) var(--white-zone-left-max),
             #F5C60C var(--yellow-left-zone-min) var(--yellow-left-zone-max),
             #FF7937 var(--orange-left-zone-min) var(--orange-left-zone-max),
             #B6D5E7 var(--grey-zone-min) var(--grey-zone-max),
             #FF7937 var(--orange-right-zone-min) var(--orange-right-zone-max),
             #F5C60C var(--yellow-right-zone-min) var(--yellow-right-zone-max),
-            #fff var(--white-zone-min) var(--white-zone-max)
+            #fff var(--white-zone-right-min) var(--white-zone-right-max)
     );
     background-size: 20em 20em;
     border-radius: 50%;
