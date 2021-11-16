@@ -36,7 +36,7 @@ const UmbrellaGauge = () => {
         };
     }
 
-    return <div id="gauge" style={dialStyle()}>
+    return <div id="umbrella-gauge" style={dialStyle()}>
         <div className="needle" style={needleStyle(23)}/>
     </div>
 }

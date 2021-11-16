@@ -1,4 +1,4 @@
-#gauge {
+#umbrella-gauge {
     height: 10em;
     width: 20em;
     background-image: conic-gradient(
@@ -19,14 +19,15 @@
     border-radius: 50%/100% 100% 0 0;
 }
 
-#gauge .needle {
+#umbrella-gauge .needle {
     background-color: red;
-    height: 2px;
-    width:50%;
+    height: 5px;
+    width: 50%;
+    border-radius: 5px;
     -webkit-transform: rotate(var(--needle-position));
     position: relative;
     z-index: 1;
-    top:10em;
+    top: 10em;
     padding-left: 50%;
     transform-origin: center;
     visibility: var(--needle-visibility, hidden);
