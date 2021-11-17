@@ -1,0 +1,15 @@
+.start-game-panel--button {
+    background-color: #0F1235;
+    border: #0F1235;
+    color: white;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 25px;
+
+}
+
+.start-game-panel--button:hover {
+    background-color: #7AB9A6;
+    border:  #7AB9A6;
+    cursor: pointer;
+}
