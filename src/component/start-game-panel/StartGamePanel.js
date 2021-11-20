@@ -20,7 +20,7 @@ const StartGamePanel = ({createGame}) => {
     };
 
     return <div className="start-game-panel">
-        <SubmitButton label="Jouer" submit={start("game1")}/>
+        <SubmitButton label="Nouvelle partie" submit={start("game1")}/>
     </div>;
 }
 
