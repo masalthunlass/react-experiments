@@ -1,0 +1,26 @@
+.start-game-panel form {
+    width: 300px;
+    text-align: center;
+}
+
+
+.start-game-panel form label {
+    margin-bottom: 10px;
+    display: inline-block;
+
+}
+
+.start-game-panel form input{
+    margin-left: 5px;
+    margin-bottom: 20px;
+    border: #0F1235 1px solid;
+    border-radius: 2px;
+
+}
+
+.start-game-panel form button{
+
+}
+
+
+

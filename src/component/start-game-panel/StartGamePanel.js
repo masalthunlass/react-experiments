@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './StartGamePanel.css';
 import {connect} from "react-redux";
 import actionsCreator from '../../reducer/GameReducerActions';
@@ -6,21 +6,33 @@ import SubmitButton from "../submit-button/SubmitButton";
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createGame: (id) => {
-            dispatch(actionsCreator.createGame(id))
+        createGame: (id, firstPlayer) => {
+            dispatch(actionsCreator.createGame(id, firstPlayer))
         },
     }
 }
 
 const StartGamePanel = ({createGame}) => {
 
+    const [player, setPlayer] = useState('');
+
     const start = (id) => (event) => {
+        createGame(id, player);
         event.preventDefault();
-        createGame(id);
+    };
+
+    const onChange = () => (event) => {
+        const fieldValue = event.target.value;
+        setPlayer(fieldValue);
     };
 
     return <div className="start-game-panel">
-        <SubmitButton label="Nouvelle partie" submit={start("game1")}/>
+        <form>
+            <label>Nom de joueur</label>    <br/>
+            <input type="text" name="player" value={player}  onChange={onChange()}/>
+            <br/>
+            <SubmitButton label="Nouvelle partie" submit={start("game1")}/>
+        </form>
     </div>;
 }
 

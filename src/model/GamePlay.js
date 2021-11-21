@@ -1,7 +1,8 @@
 export class GamePlay {
 
-    constructor(id) {
+    constructor(id, firstPlayer) {
         this.id = id;
+        this.firstPlayer = firstPlayer;
     }
 
 }

@@ -1,6 +1,6 @@
-const createGame = (id) => ({
-    type: 'CREATE_GAME',
-    id
+const createGame = (id, firstPlayer) => ({
+    type : 'CREATE_GAME',
+    payload: {id, firstPlayer}
 });
 
 export  default {createGame};
