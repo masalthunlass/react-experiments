@@ -18,6 +18,7 @@ const StartGamePanel = ({createGame}) => {
 
     const start = (id) => (event) => {
         createGame(id, player);
+        window.location.replace("/startGame");
         event.preventDefault();
     };
 
