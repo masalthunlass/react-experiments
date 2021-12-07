@@ -135,3 +135,9 @@ configure({
 ]
 },
 ```
+
+
+# level 4 : react router && react redux together
+
+
+https://www.pluralsight.com/guides/using-react-router-with-redux

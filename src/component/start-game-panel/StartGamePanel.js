@@ -3,6 +3,7 @@ import './StartGamePanel.css';
 import {connect} from "react-redux";
 import actionsCreator from '../../reducer/GameReducerActions';
 import SubmitButton from "../submit-button/SubmitButton";
+import {useNavigate} from "react-router-dom";
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -15,10 +16,11 @@ const mapDispatchToProps = (dispatch) => {
 const StartGamePanel = ({createGame}) => {
 
     const [player, setPlayer] = useState('');
+    let navigate = useNavigate();
 
     const start = (id) => (event) => {
         createGame(id, player);
-        window.location.replace("/startGame");
+        navigate("/startGame");
         event.preventDefault();
     };
 
@@ -29,8 +31,8 @@ const StartGamePanel = ({createGame}) => {
 
     return <div className="start-game-panel">
         <form>
-            <label>Nom de joueur</label>    <br/>
-            <input type="text" name="player" value={player}  onChange={onChange()}/>
+            <label>Nom de joueur</label> <br/>
+            <input type="text" name="player" value={player} onChange={onChange()}/>
             <br/>
             <SubmitButton label="Nouvelle partie" submit={start("game1")}/>
         </form>

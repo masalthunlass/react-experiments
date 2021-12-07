@@ -1,4 +1,15 @@
-div {
+.app {
     color: #0F1235;
     font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.app div {
+    width: 500px;
+    position: relative;
+}
+
+
+.app h1 {
+    font-size: 45px;
 }
