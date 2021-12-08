@@ -1,0 +1,22 @@
+.dispatch-players-panel .team {
+    border: #0F1235 2px solid;
+    border-radius:  4px;
+    height: 250px;
+    width: 200px;
+    display: inline-block;
+    margin: 10px 5px 15px;
+}
+
+.dispatch-players-panel  {
+    width: 430px;
+    margin: auto;
+    text-align: center;
+}
+
+.dispatch-players-panel .player {
+    height: 25px;
+    background-color: #0F1235;
+    color: white;
+}
+
+

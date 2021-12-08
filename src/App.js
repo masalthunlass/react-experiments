@@ -1,13 +1,21 @@
 import React from 'react';
 import './App.css';
-import UmbrellaGauge from "./umbrella-gauge/UmbrellaGauge";
-import NeedleGauge from "./needle-gauge/NeedleGauge";
+import StartGamePanel from "./component/start-game-panel/StartGamePanel";
+import DispatchPlayersPanel from "./component/dispatch-players-panel/DispatchPlayersPanel";
+import {Route, Routes} from "react-router-dom";
+
 
 function App() {
-    return <div>
+    return <div className="app">
+
         <h1>Longueur d'ondes</h1>
-        <UmbrellaGauge/>
-        <NeedleGauge/>
+        <div className="container">
+            <Routes>
+                <Route path="/" element={<StartGamePanel/>}/>
+                <Route path="/startGame" element={<DispatchPlayersPanel/>}/>
+            </Routes>
+        </div>
+
     </div>;
 }
 

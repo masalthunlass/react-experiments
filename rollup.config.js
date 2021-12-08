@@ -1,7 +1,7 @@
 import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 import babel from '@rollup/plugin-babel';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import image from "@rollup/plugin-image";
@@ -31,6 +31,7 @@ export default {
             contentBase: ["", "public"],
             host: "localhost",
             port: 3000,
+            historyApiFallback: true
         }),
         livereload({ watch: "dist" }),
         image(),
