@@ -1,7 +1,7 @@
 {
   "name": "react-experiments",
   "version": "1.0.0",
-  "description": "",
+  "description": "react & roll up app for training sessions",
   "main": "src/index.js",
   "jest": {
     "setupFilesAfterEnv": [
