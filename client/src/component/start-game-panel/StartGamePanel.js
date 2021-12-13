@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import './StartGamePanel.css';
 import {connect} from "react-redux";
-import actionsCreator from '../../reducer/GameReducerActions';
 import SubmitButton from "../submit-button/SubmitButton";
 import {useNavigate} from "react-router-dom";
+import {GameCreationService} from "../../service/GameService";
 
 const mapDispatchToProps = (dispatch) => {
     return {
         createGame: (id, firstPlayer) => {
-            dispatch(actionsCreator.createGame(id, firstPlayer))
+            dispatch(GameCreationService.create(id, firstPlayer))
         },
     }
 }
@@ -16,11 +16,11 @@ const mapDispatchToProps = (dispatch) => {
 const StartGamePanel = ({createGame}) => {
 
     const [player, setPlayer] = useState('');
-    let navigate = useNavigate();
+     let navigate = useNavigate();
 
     const start = (id) => (event) => {
         createGame(id, player);
-        navigate("/startGame");
+      //  navigate("/startGame");
         event.preventDefault();
     };
 

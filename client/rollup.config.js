@@ -1,4 +1,3 @@
-import serve from "rollup-plugin-serve";
 import livereload from "rollup-plugin-livereload";
 import babel from '@rollup/plugin-babel';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
@@ -6,25 +5,34 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import image from "@rollup/plugin-image";
 import postcss from 'rollup-plugin-postcss'
+import json from "@rollup/plugin-json";
+import serve from 'rollup-plugin-serve'
 
 export default {
     input: "src/index.js",
     output: {
         file: "dist/bundle.js",
         format: "iife",
-        sourcemap: true,
+        sourcemap: true
     },
     plugins: [
         nodeResolve({
             extensions: [".js"],
+            module: true,
+            jsnext: true,
+            main: true,
+            browser: true,
         }),
         replace({
-            'process.env.NODE_ENV': JSON.stringify( 'development' )
+            'process.env.NODE_ENV': JSON.stringify('development')
         }),
         babel({
             presets: ["@babel/preset-react"],
         }),
-        commonjs(),
+        commonjs({
+            include: [ 'node_modules/**']
+        }),
+        json(),
         serve({
             open: true,
             verbose: true,
@@ -33,10 +41,10 @@ export default {
             port: 3000,
             historyApiFallback: true
         }),
-        livereload({ watch: "dist" }),
+        livereload({watch: "dist"}),
         image(),
         postcss({
             extensions: [".css"],
-        }),
+        })
     ]
 };
