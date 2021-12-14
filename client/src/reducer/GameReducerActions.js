@@ -1,8 +1,13 @@
-export const CREATE_GAME = 'CREATE_GAME';
+import {CREATE_GAME, INIT_GAME} from "../action/GameActions";
 
 const createGame = (id, firstPlayer) => ({
     type : CREATE_GAME,
     payload: {id, firstPlayer}
 });
 
-export  default {createGame};
+const fetchGame = (id, players) => ({
+    type : INIT_GAME,
+    payload: {id, players}
+});
+
+export  default {createGame, fetchGame};

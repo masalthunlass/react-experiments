@@ -12,9 +12,18 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     next();
 });
+
 app.post('/api/games', (req, res) => {
     gameController.createGame(req.body.id, req.body.firstPlayer).then((games) => {
         res.status(200).json(games);
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
+});
+
+app.get('/api/games/:id', (req, res) => {
+    gameController.getGame(req.params.id).then((game) => {
+        res.status(200).json(game);
     }).catch((err) => {
         res.status(500).json(err);
     });

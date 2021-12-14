@@ -3,7 +3,7 @@ export class GamePlay {
     players = [];
 
     constructor(id, firstPlayer) {
-        this.gameId = id;
+        this.id = id;
         this.players.push(firstPlayer);
     }
 

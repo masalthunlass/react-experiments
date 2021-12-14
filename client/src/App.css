@@ -9,6 +9,12 @@
     position: relative;
 }
 
+.app .container {
+    width: 500px;
+    position: relative;
+    display: flex;
+    margin: auto;
+}
 
 .app h1 {
     font-size: 45px;

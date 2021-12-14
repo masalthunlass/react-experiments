@@ -12,7 +12,7 @@ function App() {
         <div className="container">
             <Routes>
                 <Route path="/" element={<StartGamePanel/>}/>
-                <Route path="/startGame" element={<DispatchPlayersPanel/>}/>
+                <Route path="/startGame/:id" element={<DispatchPlayersPanel/>}/>
             </Routes>
         </div>
 
