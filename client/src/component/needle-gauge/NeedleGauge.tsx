@@ -11,7 +11,7 @@ const NeedleGauge = () => {
         if (position < min) setPosition(min);
         return {
             "--needle-position": `${position}deg`
-        };
+        } as React.CSSProperties;
     }
 
     return <>

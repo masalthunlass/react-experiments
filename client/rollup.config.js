@@ -6,18 +6,14 @@ import replace from '@rollup/plugin-replace';
 import image from "@rollup/plugin-image";
 import postcss from 'rollup-plugin-postcss'
 import json from "@rollup/plugin-json";
-import serve from 'rollup-plugin-serve'
+import serve from "rollup-plugin-serve";
+import typescript from '@rollup/plugin-typescript';
 
 export default {
-    input: "src/index.js",
-    output: {
-        file: "dist/bundle.js",
-        format: "iife",
-        sourcemap: true
-    },
+    input: "./src/index.tsx",
     plugins: [
         nodeResolve({
-            extensions: [".js"],
+            extensions: [".js", ".ts", ".tsx"],
             module: true,
             jsnext: true,
             main: true,
@@ -26,11 +22,12 @@ export default {
         replace({
             'process.env.NODE_ENV': JSON.stringify('development')
         }),
+        typescript(),
         babel({
-            presets: ["@babel/preset-react"],
+            presets: ["@babel/preset-react", "@babel/preset-typescript"],
         }),
         commonjs({
-            include: [ 'node_modules/**']
+            include: ['node_modules/**']
         }),
         json(),
         serve({
@@ -46,5 +43,10 @@ export default {
         postcss({
             extensions: [".css"],
         })
-    ]
+    ],
+    output: {
+        file: "dist/bundle.js",
+        format: "iife",
+        sourcemap: true
+    }
 };

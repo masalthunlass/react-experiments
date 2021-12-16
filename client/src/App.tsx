@@ -4,8 +4,7 @@ import StartGamePanel from "./component/start-game-panel/StartGamePanel";
 import DispatchPlayersPanel from "./component/dispatch-players-panel/DispatchPlayersPanel";
 import {Route, Routes} from "react-router-dom";
 
-
-function App() {
+const App: React.FC = () => {
     return <div className="app">
 
         <h1>Longueur d'ondes</h1>

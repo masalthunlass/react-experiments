@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useParams} from 'react-router-dom';
 import './DispatchPlayersPanel.css';
 import SubmitButton from "../submit-button/SubmitButton";
@@ -8,7 +8,7 @@ import {GameService} from "../../service/GameService";
 
 const mapStateToProps = (state) => {
     return {
-        gamePlay: state.gamePlay || new GamePlay()
+        gamePlay: state.gamePlay || new GamePlay('', '')
     }
 }
 
@@ -20,13 +20,15 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+//react testing library
+
 const DispatchPlayersPanel = ({gamePlay, fetchGame}) => {
     const {id} = useParams();
-    useEffect(() => {
-        if (id) {
-            fetchGame(id);
-        }
-    }, [id]);
+    /*  useEffect(() => {
+          if (id) {
+              fetchGame(id);
+          }
+      }, [id]);*/
 
     const play = () => (event) => {
         event.preventDefault();

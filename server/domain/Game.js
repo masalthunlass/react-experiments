@@ -1,4 +1,4 @@
-export class GamePlay {
+class Game {
 
     players = [];
 
@@ -9,3 +9,4 @@ export class GamePlay {
 
 }
 
+module.exports = Game;

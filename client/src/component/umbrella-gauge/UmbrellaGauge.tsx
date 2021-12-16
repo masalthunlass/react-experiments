@@ -7,9 +7,9 @@ const UmbrellaGauge = () => {
         return {
             "--needle-position": `${position}deg`,
             "--needle-visibility": `${visibility}`
-       };
+       }  as React.CSSProperties;
     }
-    const randomInt = (max) => {
+    const randomInt = (max: number) => {
             return Math.floor(Math.random() * max);
     }
     const dialStyle = () => {
@@ -33,7 +33,7 @@ const UmbrellaGauge = () => {
             "--grey-zone-max": `${start +15 }deg`,
             "--white-zone-right-min": `${start +25 }deg`,
             "--white-zone-right-max": '360deg',
-        };
+        }  as React.CSSProperties;
     }
 
     return <div id="umbrella-gauge" style={dialStyle()}>

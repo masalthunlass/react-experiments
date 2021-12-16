@@ -5,22 +5,28 @@ import SubmitButton from "../submit-button/SubmitButton";
 import {useNavigate} from "react-router-dom";
 import {GameService} from "../../service/GameService";
 import {GamePlay} from "../../model/GamePlay";
+import {Dispatch} from 'redux';
 
+interface Props {
+    gamePlay: GamePlay;
+    createGame: ((id: string, firstPlayer: string) => {});
+}
 const mapStateToProps = (state) => {
     return {
-        gamePlay: state.gamePlay || new GamePlay()
+        gamePlay: state.gamePlay || new GamePlay('', '')
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch) => {
     return {
-        createGame: (id, firstPlayer) => {
+        createGame: (id: string, firstPlayer: string) => {
+            // @ts-ignore
             dispatch(GameService.create(id, firstPlayer))
         },
     }
 }
 
-const StartGamePanel = ({gamePlay, createGame}) => {
+const StartGamePanel: React.FC<Props> = ({gamePlay, createGame}) => {
 
     const [player, setPlayer] = useState('');
      let navigate = useNavigate();
@@ -31,7 +37,7 @@ const StartGamePanel = ({gamePlay, createGame}) => {
         }
     }, [gamePlay]);
 
-    const start = (id) => (event) => {
+    const start = (id: string) => (event) => {
         createGame(id, player);
         event.preventDefault();
     };
