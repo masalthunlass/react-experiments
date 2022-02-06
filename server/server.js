@@ -1,35 +1,38 @@
 const gameController = require('./api/GameController')
-const express = require('express'); // alternatives : fastify adoni.js
-const app = express();
+const app = require('fastify')({logger: true})// alternatives :  adoni.js
 const port = 5000;
 
-app.use(express.json());
 
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
+app.register(require("fastify-cors"), {
+    origin: "http://localhost:3000",
+    methods: ["POST", "GET", "PUT", "PATCH", "DELETE"]
 });
 
-app.post('/api/games', (req, res) => {
+app.post('/api/games', async (req, res) => {
     gameController.createGame(req.body.id, req.body.firstPlayer).then((games) => {
-        res.status(200).json(games);
+        res.status(200).send(games);
     }).catch((err) => {
-        res.status(500).json(err);
+        res.status(500).send(err);
     });
 });
 
-app.get('/api/games/:id', (req, res) => {
+app.get('/api/games/:id', async (req, res) => {
     gameController.getGame(req.params.id).then((game) => {
-        res.status(200).json(game);
+        res.status(200).send(game);
     }).catch((err) => {
-        res.status(500).json(err);
+        res.status(500).send(err);
     });
 });
 
 
-app.listen(5000, () => {
-    console.log(`Now listening on port ${port}`);
-});
+const start = async () => {
+    try {
+        await app.listen(port)
+    } catch (err) {
+        app.log.error(err)
+        process.exit(1)
+    }
+}
+start()
+
+
