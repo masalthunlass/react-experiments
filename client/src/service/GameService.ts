@@ -16,6 +16,13 @@ export const GameService = {
         }).catch(error => {
             console.error(error);
         });
+    },
+    addPlayer: (gameId: string, playerId: string) => async (dispatch: Dispatch) => {
+        axios.put('http://localhost:5000/api/games/' + gameId + '/players', {gameId, playerId}).then(({data}) => {
+            dispatch(actionsCreator.fetchGame(data.id, data.players));
+        }).catch(error => {
+            console.error(error);
+        });
     }
 }
 

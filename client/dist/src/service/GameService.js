@@ -58,5 +58,16 @@ export var GameService = {
             });
             return [2 /*return*/];
         });
+    }); }; },
+    addPlayer: function (gameId, playerId) { return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            axios.put('http://localhost:5000/api/games/' + gameId + '/players', { gameId: gameId, playerId: playerId }).then(function (_a) {
+                var data = _a.data;
+                dispatch(actionsCreator.fetchGame(data.id, data.players));
+            }).catch(function (error) {
+                console.error(error);
+            });
+            return [2 /*return*/];
+        });
     }); }; }
 };
