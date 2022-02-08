@@ -1,24 +1,24 @@
 import actionsCreator from '../reducer/GameReducerActions'
-import axios from "axios";
 import {Dispatch} from 'redux';
 
 export const GameService = {
     create:  (id: string, firstPlayer: string) => async (dispatch: Dispatch) => {
-        axios.post('http://localhost:5000/api/games', {id, firstPlayer}).then(() => {
+       fetch('http://localhost:5000/api/games', {method : 'post', body : JSON.stringify({id, firstPlayer})}).then(() => {
             dispatch(actionsCreator.createGame(id, firstPlayer));
         }).catch(error => {
             console.error(error);
         });
     },
     fetch: (id: string) => async (dispatch: Dispatch) => {
-        axios.get('http://localhost:5000/api/games/' + id).then(({data}) => {
+        fetch('http://localhost:5000/api/games/' + id,  {method : 'get'}).then(result => result.json()).then(({data}) => {
             dispatch(actionsCreator.fetchGame(data.id, data.players));
         }).catch(error => {
             console.error(error);
         });
     },
     addPlayer: (gameId: string, playerId: string) => async (dispatch: Dispatch) => {
-        axios.put('http://localhost:5000/api/games/' + gameId + '/players', {gameId, playerId}).then(({data}) => {
+        fetch('http://localhost:5000/api/games/' + gameId + '/players', {method : 'put', body :JSON.stringify({gameId, playerId})})
+            .then(result => result.json()).then(({data}) => {
             dispatch(actionsCreator.fetchGame(data.id, data.players));
         }).catch(error => {
             console.error(error);
